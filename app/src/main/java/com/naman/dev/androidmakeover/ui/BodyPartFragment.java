@@ -9,13 +9,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.naman.dev.androidmakeover.R;
-import com.naman.dev.androidmakeover.data.AndroidImageAssets;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by naman on 9/30/2017.
  */
 
 public class BodyPartFragment extends Fragment {
+
+    private List<Integer> mImagesIds;
+    private int mListIndex;
+
     public BodyPartFragment() {
 
     }
@@ -23,9 +29,39 @@ public class BodyPartFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_body_part,container,false);
-        ImageView imageView = rootView.findViewById(R.id.body_part_image_view);
-        imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
+
+        if (savedInstanceState != null) {
+            mImagesIds = savedInstanceState.getIntegerArrayList("IMAGE_ID_LIST");
+            mListIndex = savedInstanceState.getInt("LIST_INDEX");
+        }
+        View rootView = inflater.inflate(R.layout.fragment_body_part, container, false);
+        final ImageView imageView = rootView.findViewById(R.id.body_part_image_view);
+        if (mImagesIds != null)
+            imageView.setImageResource(mImagesIds.get(mListIndex));
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                mListIndex = (mListIndex + 1) % (mImagesIds.size() - 1);
+                imageView.setImageResource(mImagesIds.get(mListIndex));
+            }
+        });
         return rootView;
+    }
+
+    // To save state on rotation
+    @Override
+    public void onSaveInstanceState(Bundle currentState) {
+        currentState.putIntegerArrayList("IMAGE_ID_LIST", (ArrayList<Integer>) mImagesIds);
+        currentState.putInt("LIST_INDEX", mListIndex);
+    }
+
+    public void setImagesIds(List<Integer> mImagesIds) {
+        this.mImagesIds = mImagesIds;
+    }
+
+    public void setListIndex(int mListIndex) {
+        this.mListIndex = mListIndex;
     }
 }
