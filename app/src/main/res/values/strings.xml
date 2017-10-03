@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidMakeOver</string>
+    <string name="rationale_external">This app needs access your storage to work well.</string>
 </resources>
