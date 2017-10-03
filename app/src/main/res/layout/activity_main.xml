@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/full_avatar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/full_avatar"
+            tools:context="com.naman.dev.androidmakeover.MainActivity">
+
+
+            <FrameLayout
+                android:id="@+id/head_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.naman.dev.androidmakeover.MainActivity">
-
+                android:layout_height="180dp"></FrameLayout>
 
             <FrameLayout
-                    android:id="@+id/head_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"></FrameLayout>
+                android:id="@+id/body_container"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@+id/head_container"></FrameLayout>
 
             <FrameLayout
-                    android:layout_below="@+id/head_container"
-                    android:id="@+id/body_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"></FrameLayout>
-
-            <FrameLayout
-                    android:layout_below="@+id/body_container"
-                    android:id="@+id/leg_container"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"></FrameLayout>
+                android:id="@+id/leg_container"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@+id/body_container"></FrameLayout>
         </RelativeLayout>
 
 
-
         <Button
-                android:id="@+id/btnShare"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Share"/>
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Share" />
     </LinearLayout>
 
 </ScrollView>
