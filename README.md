@@ -20,8 +20,10 @@ $ git clone https://github.com/<YOUR_USERNAME_HERE>/AndroidMakeOver.git
 
 ## Improvements
 Currently, the following changes are expected. More can be added by you.
+- [x] Add Share Option
 - [ ] Add 'Set as wallpaper' option
-- [ ] Add Share Option
+- [ ] Design a logo
+- [ ] Face Detection
 
 ## LICENSE
 namansachdeva/AndroidMakeOver is licensed under the MIT License
