@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidMakeOver</string>
+    <string name="storage_error">You can not share a picture unless allow external storage permission.</string>
 </resources>
