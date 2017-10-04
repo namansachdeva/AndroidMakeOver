@@ -1,5 +1,6 @@
 package com.naman.dev.androidmakeover;
 
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.naman.dev.androidmakeover.data.AndroidImageAssets;
 import com.naman.dev.androidmakeover.ui.BodyPartFragment;
@@ -23,6 +25,8 @@ import com.naman.dev.androidmakeover.ui.BodyPartFragment;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,6 +68,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button bttn = (Button) findViewById(R.id.wallpaper);
+        bttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                WallpaperManager wm = WallpaperManager.getInstance(MainActivity.this);
+                final RelativeLayout rl_avatar = (RelativeLayout) findViewById(R.id.full_avatar);
+                Bitmap bit = getBitmapFromView(rl_avatar);
+                try{
+                    wm.setBitmap(bit);
+                    Toast.makeText(getApplicationContext(),"Wallpaper changed",Toast.LENGTH_SHORT).show();
+                }catch (IOException e){
+                    Log.e("MainActivity.java",""+e);
+                }
+            }
+        });
     }
 
     private void shareAvatar(){
