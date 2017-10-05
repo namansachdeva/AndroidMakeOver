@@ -43,6 +43,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:text="Share"/>
+        <Button
+            android:id="@+id/wallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Set Walpaper"/>
+
     </LinearLayout>
 
 </ScrollView>
