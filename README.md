@@ -21,7 +21,7 @@ $ git clone https://github.com/<YOUR_USERNAME_HERE>/AndroidMakeOver.git
 ## Improvements
 Currently, the following changes are expected. More can be added by you.
 - [x] Add Share Option
-- [ ] Add 'Set as wallpaper' option
+- [x] Add 'Set as wallpaper' option
 - [ ] Design a logo
 - [ ] Face Detection
 
